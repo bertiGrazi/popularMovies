@@ -9,7 +9,7 @@ import UIKit
 
 class CheckBoxButton: UIView {
     //MARK: - Variable
-    var isChecked = false
+    var isChecked = true
     
     //MARK: - View
     let checkMarkImage: UIImageView = {

@@ -44,6 +44,16 @@ class ViewController: UIViewController {
     
     let checkBox = CheckBoxButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
     
+    let showMoviesFavoritesLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Mostrar meus filmes favoritos"
+        label.textColor = .white
+        label.textAlignment = .center
+        label.font = UIFont.boldSystemFont(ofSize: 14)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red: 0.29, green: 0, blue: 0.15, alpha: 1)
@@ -65,6 +75,7 @@ class ViewController: UIViewController {
         view.addSubview(movieTextField)
         view.addSubview(stackView)
         stackView.addArrangedSubview(checkBox)
+        view.addSubview(showMoviesFavoritesLabel)
     }
     
     fileprivate func setupConstrains() {
@@ -77,9 +88,12 @@ class ViewController: UIViewController {
             movieTextField.widthAnchor.constraint(equalToConstant: 250),
 
             stackView.topAnchor.constraint(equalTo: movieTextField.bottomAnchor, constant: 16),
-            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 70),
             stackView.heightAnchor.constraint(equalToConstant: 30),
-            stackView.widthAnchor.constraint(equalToConstant: 30)
+            stackView.widthAnchor.constraint(equalToConstant: 30),
+            
+            showMoviesFavoritesLabel.topAnchor.constraint(equalTo: movieTextField.bottomAnchor, constant: 24),
+            showMoviesFavoritesLabel.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 40),
         ])
     }
 }
