@@ -15,6 +15,7 @@
 		B11DC5DC2846504300C01397 /* popularMoviesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11DC5DB2846504300C01397 /* popularMoviesTests.swift */; };
 		B11DC5E62846504300C01397 /* popularMoviesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11DC5E52846504300C01397 /* popularMoviesUITests.swift */; };
 		B11DC5E82846504300C01397 /* popularMoviesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11DC5E72846504300C01397 /* popularMoviesUITestsLaunchTests.swift */; };
+		B1CEB8852847ECD400379F57 /* CheckBoxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEB8842847ECD400379F57 /* CheckBoxButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		B11DC5E12846504300C01397 /* popularMoviesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = popularMoviesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B11DC5E52846504300C01397 /* popularMoviesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popularMoviesUITests.swift; sourceTree = "<group>"; };
 		B11DC5E72846504300C01397 /* popularMoviesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popularMoviesUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B1CEB8842847ECD400379F57 /* CheckBoxButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				B11DC5CD2846504200C01397 /* Assets.xcassets */,
 				B11DC5CF2846504300C01397 /* LaunchScreen.storyboard */,
 				B11DC5D22846504300C01397 /* Info.plist */,
+				B1CEB8842847ECD400379F57 /* CheckBoxButton.swift */,
 			);
 			path = popularMovies;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 			files = (
 				B11DC5C92846503F00C01397 /* ViewController.swift in Sources */,
 				B11DC5C52846503F00C01397 /* AppDelegate.swift in Sources */,
+				B1CEB8852847ECD400379F57 /* CheckBoxButton.swift in Sources */,
 				B11DC5C72846503F00C01397 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
