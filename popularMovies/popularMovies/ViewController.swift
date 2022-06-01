@@ -30,6 +30,8 @@ class ViewController: UIViewController {
         textField.borderStyle = UITextField.BorderStyle.roundedRect
         textField.keyboardType = UIKeyboardType.default
         textField.returnKeyType = UIReturnKeyType.done
+        textField.backgroundColor = UIColor(red: 0.67, green: 0.67, blue: 0.67, alpha: 0.5)
+        textField.textColor = .white
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -85,7 +87,7 @@ class ViewController: UIViewController {
             
             movieTextField.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 12),
             movieTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0),
-            movieTextField.widthAnchor.constraint(equalToConstant: 250),
+            movieTextField.widthAnchor.constraint(equalToConstant: 300),
 
             stackView.topAnchor.constraint(equalTo: movieTextField.bottomAnchor, constant: 16),
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 70),
