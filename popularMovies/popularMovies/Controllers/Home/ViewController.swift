@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         textField.borderStyle = UITextField.BorderStyle.roundedRect
         textField.keyboardType = UIKeyboardType.default
         textField.returnKeyType = UIReturnKeyType.done
-        textField.backgroundColor = UIColor(red: 0.67, green: 0.67, blue: 0.67, alpha: 0.5)
+        textField.backgroundColor = UIColor(red: 0.67, green: 0.67, blue: 0.67, alpha: 0.7)
         textField.textColor = .white
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
@@ -36,8 +36,8 @@ class ViewController: UIViewController {
     
     let stackView: UIStackView = {
         let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.backgroundColor = .white
+        stackView.axis = .horizontal
+        stackView.backgroundColor = .blue
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
@@ -68,6 +68,7 @@ class ViewController: UIViewController {
         moviesTableView.register(ListMoviesTableViewCell.self, forCellReuseIdentifier: ListMoviesTableViewCell.identifier)
         
         moviesTableView.dataSource = self
+        moviesTableView.delegate = self
         
         let gesture = UITapGestureRecognizer(target: self, action: #selector(didTapCheckBox))
         checkBox.addGestureRecognizer(gesture)
@@ -115,7 +116,11 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UITableViewDataSource {
+extension ViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.fetchMoviesList().count
     }
