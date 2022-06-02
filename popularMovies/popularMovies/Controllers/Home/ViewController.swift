@@ -8,12 +8,10 @@
 import UIKit
 
 class ViewController: UIViewController {
-//    let scrowView: UIScrollView = {
-//        let scrollView = UIScrollView()
-//        scrollView.translatesAutoresizingMaskIntoConstraints = false
-//        return scrollView
-//    }()
+    //MARK: - Variable
+    let viewModel = ListMoviesViewModel()
     
+    //MARK: - View
     let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Filmes Populares"
@@ -56,9 +54,20 @@ class ViewController: UIViewController {
         return label
     }()
     
+    let moviesTableView: UITableView = {
+        let tableView = UITableView()
+        tableView.backgroundColor = UIColor(red: 0.29, green: 0, blue: 0.15, alpha: 1)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red: 0.29, green: 0, blue: 0.15, alpha: 1)
+        
+        moviesTableView.register(ListMoviesTableViewCell.self, forCellReuseIdentifier: ListMoviesTableViewCell.identifier)
+        
+        moviesTableView.dataSource = self
         
         let gesture = UITapGestureRecognizer(target: self, action: #selector(didTapCheckBox))
         checkBox.addGestureRecognizer(gesture)
@@ -78,6 +87,7 @@ class ViewController: UIViewController {
         view.addSubview(stackView)
         stackView.addArrangedSubview(checkBox)
         view.addSubview(showMoviesFavoritesLabel)
+        view.addSubview(moviesTableView)
     }
     
     fileprivate func setupConstrains() {
@@ -96,7 +106,24 @@ class ViewController: UIViewController {
             
             showMoviesFavoritesLabel.topAnchor.constraint(equalTo: movieTextField.bottomAnchor, constant: 24),
             showMoviesFavoritesLabel.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 40),
+            
+            moviesTableView.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 12),
+            moviesTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            moviesTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            moviesTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
         ])
     }
 }
 
+extension ViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.fetchMoviesList().count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ListMoviesTableViewCell.identifier, for: indexPath) as? ListMoviesTableViewCell else { return UITableViewCell() }
+        
+        cell.configCell(for: viewModel.fetchMoviesList()[indexPath.row])
+        return cell
+    }
+}

@@ -16,6 +16,11 @@
 		B11DC5E62846504300C01397 /* popularMoviesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11DC5E52846504300C01397 /* popularMoviesUITests.swift */; };
 		B11DC5E82846504300C01397 /* popularMoviesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11DC5E72846504300C01397 /* popularMoviesUITestsLaunchTests.swift */; };
 		B1CEB8852847ECD400379F57 /* CheckBoxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEB8842847ECD400379F57 /* CheckBoxButton.swift */; };
+		B1F57F9B2848EAEE001D5215 /* ListMoviesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F57F9A2848EAEE001D5215 /* ListMoviesTableViewCell.swift */; };
+		B1F57F9F2848EB67001D5215 /* MoviesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F57F9E2848EB67001D5215 /* MoviesDataSource.swift */; };
+		B1F57FA12848F153001D5215 /* ListMoviesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F57FA02848F153001D5215 /* ListMoviesModel.swift */; };
+		B1F57FA32848F15F001D5215 /* ListMoviesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F57FA22848F15F001D5215 /* ListMoviesProtocol.swift */; };
+		B1F57FA62848F33C001D5215 /* ListMoviesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F57FA52848F33C001D5215 /* ListMoviesViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +54,11 @@
 		B11DC5E52846504300C01397 /* popularMoviesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popularMoviesUITests.swift; sourceTree = "<group>"; };
 		B11DC5E72846504300C01397 /* popularMoviesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popularMoviesUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B1CEB8842847ECD400379F57 /* CheckBoxButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxButton.swift; sourceTree = "<group>"; };
+		B1F57F9A2848EAEE001D5215 /* ListMoviesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMoviesTableViewCell.swift; sourceTree = "<group>"; };
+		B1F57F9E2848EB67001D5215 /* MoviesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesDataSource.swift; sourceTree = "<group>"; };
+		B1F57FA02848F153001D5215 /* ListMoviesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMoviesModel.swift; sourceTree = "<group>"; };
+		B1F57FA22848F15F001D5215 /* ListMoviesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMoviesProtocol.swift; sourceTree = "<group>"; };
+		B1F57FA52848F33C001D5215 /* ListMoviesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMoviesViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +109,13 @@
 		B11DC5C32846503F00C01397 /* popularMovies */ = {
 			isa = PBXGroup;
 			children = (
-				B11DC5C42846503F00C01397 /* AppDelegate.swift */,
-				B11DC5C62846503F00C01397 /* SceneDelegate.swift */,
-				B11DC5C82846503F00C01397 /* ViewController.swift */,
-				B11DC5CD2846504200C01397 /* Assets.xcassets */,
+				B1F57FA42848F166001D5215 /* ViewModel */,
+				B1F57F9D2848EB36001D5215 /* BusinessModal */,
+				B1F57F982848E9CE001D5215 /* Controllers */,
+				B1F57F962848E988001D5215 /* Resources */,
+				B1F57F972848E9AD001D5215 /* View */,
 				B11DC5CF2846504300C01397 /* LaunchScreen.storyboard */,
 				B11DC5D22846504300C01397 /* Info.plist */,
-				B1CEB8842847ECD400379F57 /* CheckBoxButton.swift */,
 			);
 			path = popularMovies;
 			sourceTree = "<group>";
@@ -125,6 +135,67 @@
 				B11DC5E72846504300C01397 /* popularMoviesUITestsLaunchTests.swift */,
 			);
 			path = popularMoviesUITests;
+			sourceTree = "<group>";
+		};
+		B1F57F962848E988001D5215 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B11DC5CD2846504200C01397 /* Assets.xcassets */,
+				B11DC5C42846503F00C01397 /* AppDelegate.swift */,
+				B11DC5C62846503F00C01397 /* SceneDelegate.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B1F57F972848E9AD001D5215 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B1CEB8842847ECD400379F57 /* CheckBoxButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B1F57F982848E9CE001D5215 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B1F57F992848EAD4001D5215 /* Home */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		B1F57F992848EAD4001D5215 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B11DC5C82846503F00C01397 /* ViewController.swift */,
+				B1F57F9A2848EAEE001D5215 /* ListMoviesTableViewCell.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		B1F57F9C2848EB2A001D5215 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				B1F57F9E2848EB67001D5215 /* MoviesDataSource.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		B1F57F9D2848EB36001D5215 /* BusinessModal */ = {
+			isa = PBXGroup;
+			children = (
+				B1F57F9C2848EB2A001D5215 /* DataSource */,
+				B1F57FA02848F153001D5215 /* ListMoviesModel.swift */,
+				B1F57FA22848F15F001D5215 /* ListMoviesProtocol.swift */,
+			);
+			path = BusinessModal;
+			sourceTree = "<group>";
+		};
+		B1F57FA42848F166001D5215 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B1F57FA52848F33C001D5215 /* ListMoviesViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,7 +330,12 @@
 			files = (
 				B11DC5C92846503F00C01397 /* ViewController.swift in Sources */,
 				B11DC5C52846503F00C01397 /* AppDelegate.swift in Sources */,
+				B1F57F9F2848EB67001D5215 /* MoviesDataSource.swift in Sources */,
+				B1F57FA62848F33C001D5215 /* ListMoviesViewModel.swift in Sources */,
 				B1CEB8852847ECD400379F57 /* CheckBoxButton.swift in Sources */,
+				B1F57FA32848F15F001D5215 /* ListMoviesProtocol.swift in Sources */,
+				B1F57F9B2848EAEE001D5215 /* ListMoviesTableViewCell.swift in Sources */,
+				B1F57FA12848F153001D5215 /* ListMoviesModel.swift in Sources */,
 				B11DC5C72846503F00C01397 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
