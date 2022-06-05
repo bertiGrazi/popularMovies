@@ -10,18 +10,15 @@ import UIKit
 
 class MoviesDataSource {
     
-//    var moviesImages = UIImageView()
+    var moviesImages = UIImageView()
     let moviesName: String
-//    let moviesDescriptions: String
-//    let moviesRating: Int
+    let moviesDescriptions: String
+    let moviesRating: Double
     
-//    init(moviesImages: UIImageView, moviesName: String, moviesDescriptions: String, moviesRating: Int) {
-//        self.moviesImages = moviesImages
-//        self.moviesName = moviesName
-//        self.moviesDescriptions = moviesDescriptions
-//        self.moviesRating = moviesRating
-//    }
-    init(moviesName: String) {
+    init(moviesImages: UIImageView, moviesName: String, moviesDescriptions: String, moviesRating: Double) {
+        self.moviesImages = moviesImages
         self.moviesName = moviesName
+        self.moviesDescriptions = moviesDescriptions
+        self.moviesRating = moviesRating
     }
 }
