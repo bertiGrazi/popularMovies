@@ -30,10 +30,10 @@ class ListMoviesTableViewCell: UITableViewCell {
         return imageView
     }()
     
-    let textstackView: UIStackView = {
+    let textStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
-        stackView.backgroundColor = .white
+        stackView.backgroundColor = UIColor(red: 0.34, green: 0.01, blue: 0.18, alpha: 1)
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
@@ -41,7 +41,7 @@ class ListMoviesTableViewCell: UITableViewCell {
     let movieNameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 14)
-        label.textColor = .black
+        label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -49,7 +49,7 @@ class ListMoviesTableViewCell: UITableViewCell {
     let movieDesciptionLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 12)
-        label.textColor = .black
+        label.textColor = .white
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -59,7 +59,8 @@ class ListMoviesTableViewCell: UITableViewCell {
         let imageView = UIImageView()
         imageView.contentMode = .scaleToFill
         imageView.clipsToBounds = true
-        imageView.image = UIImageView(image: UIImage(systemName: "star.fill"))
+        imageView.image = UIImageView(image: UIImage(systemName: "star.fill")).image
+        imageView.tintColor = .yellow
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -67,7 +68,7 @@ class ListMoviesTableViewCell: UITableViewCell {
     let moviesRatingLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 14)
-        label.textColor = .black
+        label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -89,10 +90,11 @@ class ListMoviesTableViewCell: UITableViewCell {
     fileprivate func setupView() {
         contentView.addSubview(stackView)
         stackView.addSubview(movieImageView)
-        stackView.addSubview(textstackView)
-        textstackView.addSubview(movieNameLabel)
-        textstackView.addSubview(moviesRatingLabel)
-        textstackView.addSubview(movieDesciptionLabel)
+        stackView.addSubview(textStackView)
+        textStackView.addSubview(movieNameLabel)
+        textStackView.addSubview(moviesRatingImageView)
+        textStackView.addSubview(moviesRatingLabel)
+        textStackView.addSubview(movieDesciptionLabel)
     }
     
     fileprivate func setupConstraints() {
@@ -108,20 +110,26 @@ class ListMoviesTableViewCell: UITableViewCell {
             movieImageView.heightAnchor.constraint(equalToConstant: 100),
             movieImageView.widthAnchor.constraint(equalToConstant: 100),
             
-            textstackView.topAnchor.constraint(equalTo: topAnchor, constant: 20),
-            textstackView.leadingAnchor.constraint(equalTo: movieImageView.leadingAnchor, constant: 100),
-            textstackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            textstackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
+            textStackView.topAnchor.constraint(equalTo: topAnchor, constant: 20),
+            textStackView.leadingAnchor.constraint(equalTo: movieImageView.leadingAnchor, constant: 100),
+            textStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            textStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
             
-            movieNameLabel.topAnchor.constraint(equalTo: textstackView.topAnchor, constant: 40),
-            movieNameLabel.leadingAnchor.constraint(equalTo: textstackView.leadingAnchor, constant: 8),
+            movieNameLabel.topAnchor.constraint(equalTo: textStackView.topAnchor, constant: 40),
+            movieNameLabel.leadingAnchor.constraint(equalTo: textStackView.leadingAnchor, constant: 8),
             
-            moviesRatingLabel.topAnchor.constraint(equalTo: textstackView.topAnchor, constant: 20),
-            moviesRatingLabel.trailingAnchor.constraint(equalTo: textstackView.trailingAnchor, constant: -8),
+            moviesRatingImageView.topAnchor.constraint(equalTo: textStackView.topAnchor, constant: 20),
+            moviesRatingImageView.trailingAnchor.constraint(equalTo: moviesRatingLabel.trailingAnchor, constant: -24),
+            moviesRatingImageView.widthAnchor.constraint(equalToConstant: 18),
+            moviesRatingImageView.heightAnchor.constraint(equalToConstant: 18),
+
+            
+            moviesRatingLabel.topAnchor.constraint(equalTo: textStackView.topAnchor, constant: 20),
+            moviesRatingLabel.trailingAnchor.constraint(equalTo: textStackView.trailingAnchor, constant: -8),
             
             movieDesciptionLabel.topAnchor.constraint(equalTo: movieNameLabel.bottomAnchor, constant: 12),
-            movieDesciptionLabel.leadingAnchor.constraint(equalTo: textstackView.leadingAnchor, constant: 8),
-            movieDesciptionLabel.trailingAnchor.constraint(equalTo: textstackView.trailingAnchor, constant: -2),
+            movieDesciptionLabel.leadingAnchor.constraint(equalTo: textStackView.leadingAnchor, constant: 8),
+            movieDesciptionLabel.trailingAnchor.constraint(equalTo: textStackView.trailingAnchor, constant: -2),
         ])
     }
     
